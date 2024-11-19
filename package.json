@@ -1,6 +1,6 @@
 {
   "name": "@emmanuelrobinson/keep-awake",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A capacitor plugin to toggle screen sleep prevention",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -13,7 +13,8 @@
     "ios/Sources",
     "ios/Tests",
     "Package.swift",
-    "KeepAwake.podspec"
+    "KeepAwake.podspec",
+    "EmmanuelrobinsonKeepAwake.podspec"
   ],
   "author": "Emmanuel Ejakpomewhe",
   "license": "MIT",

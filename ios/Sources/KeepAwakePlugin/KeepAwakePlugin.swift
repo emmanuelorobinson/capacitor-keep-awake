@@ -7,8 +7,12 @@ import Foundation
 public class KeepAwakePlugin: CAPPlugin, CAPBridgedPlugin {
     public let identifier = "KeepAwakePlugin"
     public let jsName = "KeepAwake"
+
     public let pluginMethods: [CAPPluginMethod] = [
-        CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise)
+        CAPPluginMethod(name: "enable", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "disable", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "isEnabled", returnType: CAPPluginReturnPromise),
+        CAPPluginMethod(name: "echo", returnType: CAPPluginReturnPromise),
     ]
     private let implementation = KeepAwake()
     private var isKeepingAwake = false
@@ -19,12 +23,7 @@ public class KeepAwakePlugin: CAPPlugin, CAPBridgedPlugin {
             "value": implementation.echo(value)
         ])
     }
-
-    @objc(KeepAwakePlugin)
-    public class KeepAwakePlugin: CAPPlugin {
-        private var isKeepingAwake = false
-
-        @objc func enable(_ call: CAPPluginCall) {
+    @objc func enable(_ call: CAPPluginCall) {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else {
                 call.reject("Plugin instance is no longer available")
@@ -56,11 +55,10 @@ public class KeepAwakePlugin: CAPPlugin, CAPBridgedPlugin {
         }
     }
 
-        @objc func isEnabled(_ call: CAPPluginCall) {
-            call.resolve([
-                "value": isKeepingAwake
-            ])
-        }
-        
+    @objc func isEnabled(_ call: CAPPluginCall) {
+        call.resolve([
+            "value": isKeepingAwake
+        ])
     }
+
 }
