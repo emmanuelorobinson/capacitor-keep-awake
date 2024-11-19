@@ -5,7 +5,8 @@ A capacitor plugin to toggle screen sleep prevention
 ## Install
 
 ```bash
-npm install keep-awake
+npm install npm i @emmanuelrobinson/keep-awake
+
 npx cap sync
 ```
 

@@ -1,5 +1,5 @@
 {
-  "name": "keep-awake",
+  "name": "@emmanuelrobinson/keep-awake",
   "version": "0.0.1",
   "description": "A capacitor plugin to toggle screen sleep prevention",
   "main": "dist/plugin.cjs.js",
